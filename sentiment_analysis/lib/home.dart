@@ -16,7 +16,7 @@ class APIService {
   };
 
   Future<SentAna> post({@required Map<String, String> query}) async {
-    final response = await http.post(_baseUrl, headers: _header, body: query);
+    final response = await http.post(Uri.parse(_baseUrl), headers: _header, body: query);
 
     if (response.statusCode == 200) {
       print('success' + response.body);
@@ -37,12 +37,12 @@ class SentAna {
   }
 }
 
-class Home extends StatefulWidget {
+class SentimentAnalysisHome extends StatefulWidget {
   @override
-  _HomeState createState() => _HomeState();
+  _SentimentAnalysisHomeState createState() => _SentimentAnalysisHomeState();
 }
 
-class _HomeState extends State<Home> {
+class _SentimentAnalysisHomeState extends State<SentimentAnalysisHome> {
   bool _loading = true;
   final myController = TextEditingController();
 
